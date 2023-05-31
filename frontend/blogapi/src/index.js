@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Header from './components/Header';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from './components/header';
+import Footer from './components/footer';
 // import * as ServiceWorker from './ser'
 
- 
+
 // const routing = (
 // 	<Router>
 // 		<React.StrictMode>
@@ -27,11 +27,15 @@ import Footer from './components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Header />
-    <App />
-    <Footer />
-  </React.StrictMode>
+  <Router>
+    <React.StrictMode>
+      <Header />
+      <Routes>
+        <Route exact path="/" Component={App} />
+      </Routes>
+      <Footer />
+    </React.StrictMode>
+  </Router>
 );
 
 // If you want to start measuring performance in your app, pass a function
