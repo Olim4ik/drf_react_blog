@@ -50,9 +50,10 @@ LOCAL_APPS = [
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY + LOCAL_APPS
 
 REST_FRAMEWORK = {
+    # Project - level permission => AllowAny / IsAuthenticated / IsAdminUser / IsAuthenticatedOrReadOnly
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
 }
 
 MIDDLEWARE = [
