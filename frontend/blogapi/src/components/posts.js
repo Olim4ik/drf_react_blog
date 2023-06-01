@@ -10,87 +10,54 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 // import StarIcon from '@mui/icons-material/StarBorder';
 import Typography from '@mui/material/Typography';
-// import Link from '@mui/material/Link';
+import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import CardMedia from '@mui/material/CardMedia';
 
-import { styled } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
 
-const useStyles = styled((theme) => ({
-	cardMedia: {
-		paddingTop: '56.25%', // 16:9
-	},
-	link: {
-		margin: theme.spacing(1, 1.5),
-	},
-	cardHeader: {
-		backgroundColor:
-			theme.palette.type === 'light'
-				? theme.palette.grey[200]
-				: theme.palette.grey[700],
-	},
-	postTitle: {
-		fontSize: '16px',
-		textAlign: 'left',
-	},
-	postText: {
-		display: 'flex',
-		justifyContent: 'left',
-		alignItems: 'baseline',
-		fontSize: '12px',
-		textAlign: 'left',
-		marginBottom: theme.spacing(2),
-	},
-}));
+// const useStyles = styled((theme) => ({
+// 	CardMedia: {
+// 		paddingTop: '56.25%', // 16:9
+// 	},
+// 	link: {
+// 		margin: theme.spacing(1, 1.5),
+// 	},
+// 	cardHeader: {
+// 		backgroundColor:
+// 			theme.palette.type === 'light'
+// 				? theme.palette.grey[200]
+// 				: theme.palette.grey[700],
+// 	},
+// 	postTitle: {
+// 		fontSize: '16px',
+// 		textAlign: 'left',
+// 	},
+// 	postText: {
+// 		display: 'flex',
+// 		justifyContent: 'left',
+// 		alignItems: 'baseline',
+// 		fontSize: '12px',
+// 		textAlign: 'left',
+// 		marginBottom: theme.spacing(2),
+// 	},
+// }));
 
-
-// const tiers = [
-//     {
-//         title: 'Free',
-//         price: '0',
-//         description: [
-//             '10 users included',
-//             '2 GB of storage',
-//             'Help center access',
-//             'Email support',
-//         ],
-//         buttonText: 'Sign up for free',
-//         buttonVariant: 'outlined',
-//     },
-//     {
-//         title: 'Pro',
-//         subheader: 'Most popular',
-//         price: '15',
-//         description: [
-//             '20 users included',
-//             '10 GB of storage',
-//             'Help center access',
-//             'Priority email support',
-//         ],
-//         buttonText: 'Get started',
-//         buttonVariant: 'contained',
-//     },
-//     {
-//         title: 'Enterprise',
-//         price: '30',
-//         description: [
-//             '50 users included',
-//             '30 GB of storage',
-//             'Help center access',
-//             'Phone & email support',
-//         ],
-//         buttonText: 'Contact us',
-//         buttonVariant: 'outlined',
-//     },
-// ];
+const styles = {
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9,
+    marginTop:'30'
+  }
+};
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 function Posts(props) {
     const { posts } = props;
-    const classes = useStyles();
+    // const classes = useStyles();
     if (!posts || posts.length === 0) {
         return (<p>Can not find any posts, sorry.</p>);
     }
@@ -121,22 +88,34 @@ function Posts(props) {
                     {posts.map((post) => {
                         return (
                             <Grid item key={post.id} xs={12} md={4}>
-                                <Card className={classes.card}  >
-                                    <CardMedia
-                                        className={classes.cardMedia}
-                                        image={require('../assets/img/images.jpeg')}
+                                <Card 
+                                // className={classes.card} 
+                                 >
+                                  <Link 
+                                    color="text.primary"
+                                    href={'post/' + post.slug}
+                                  >
+                                      <CardMedia
+                                        // className={classes.CardMedia}
+                                        image={require('../assets/img/img.jpg')} 
                                         title="Image title"
-                                    />
-                                    <CardContent className={classes.cardContent}>
+                                        style={styles.media} // specify styles
+                                      />
+                                  </Link>
+                                    <CardContent 
+                                    // className={classes.cardContent}
+                                    >
                                         <Typography
                                             gutterBottom
                                             variant="h6"
                                             component="h2"
-                                            className={classes.postTitle}
+                                            // className={classes.postTitle}
                                         >
-                                            {post.title.substr(0, 18)}...
+                                            {post.title.substr(0, 20)}...
                                         </Typography>
-                                        <div className={classes.postText}>
+                                        <div 
+                                        // className={classes.postText}
+                                        >
                                             <Typography
                                                 component="p"
                                                 color="textPrimary"

@@ -6,23 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from './components/header';
 import Footer from './components/footer';
+import SignUp from './components/register';
+import Login from './components/login';
+import Logout from './components/logout';
+import Single from './components/single';
 // import * as ServiceWorker from './ser'
-
-
-// const routing = (
-// 	<Router>
-// 		<React.StrictMode>
-// 			<Header />
-// 			<Routes>
-// 				<Route exact path="/" component={App} />
-// 			</Routes>
-// 			<Footer />
-// 		</React.StrictMode>
-// 	</Router>
-// );
-
-
-// ReactDOM.render(routing, document.getElementById('root'));
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -32,6 +20,10 @@ root.render(
       <Header />
       <Routes>
         <Route exact path="/" Component={App} />
+        <Route path="/register" Component={SignUp} />
+        <Route path="/login" Component={Login} />
+        <Route path="/logout" Component={Logout} />
+        <Route path="/post/:slug" Component={Single} />
       </Routes>
       <Footer />
     </React.StrictMode>

@@ -2,13 +2,13 @@
 // import './App.css';
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import Posts from './components/Posts';
-import PostLoadingComponent from './components/PostLoading';
+import Posts from './components/posts';
+import PostLoadingComponent from './components/postLoading';
 
 
 function App() {
   const PostLoading = PostLoadingComponent(Posts);
-  const [appState, setAppState] = useState({
+  const [appState, setAppState] = useState({  
     loading: false,
     posts: null,
   });
