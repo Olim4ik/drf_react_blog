@@ -10,6 +10,7 @@ import SignUp from './components/register';
 import Login from './components/login';
 import Logout from './components/logout';
 import Single from './components/single';
+// import Search from './components/search';
 // import * as ServiceWorker from './ser'
 
 
@@ -24,6 +25,7 @@ root.render(
         <Route path="/login" Component={Login} />
         <Route path="/logout" Component={Logout} />
         <Route path="/post/:slug" Component={Single} />
+        {/* <Route path="/search" component={Search} /> */}
       </Routes>
       <Footer />
     </React.StrictMode>

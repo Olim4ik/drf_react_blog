@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -6,9 +6,22 @@ import CssBaseline from "@mui/material/AppBar";
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import SearchBar from "material-ui-search-bar";
 
 
 function Header() {
+    let navigate = useNavigate();
+    const [data, setData] = useState({search: ''})
+
+    const goSearch = (e) => {
+        navigate({
+            pathname: '/search/',
+            search: '?search=' + data.search,
+        });
+        window.location.reload();
+    };
+
     return (
         <React.Fragment>
             <CssBaseline />
@@ -25,6 +38,11 @@ function Header() {
                         </Link>
                     </Typography>
                     <nav>
+                        <SearchBar
+                            value={data.search}
+                            onChange={(newValue) => setData({ search: newValue })}
+                            onRequestSearch={() => goSearch(data.search)}
+                        />
                         <Link variant="button" color="text.primary" href="#" component={NavLink} to="/register" sx={{ my: 1, mx: 1.5 }}>
                             Register
                         </Link>
